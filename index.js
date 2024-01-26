@@ -10,9 +10,8 @@ let advice = '';
 
 function setAdvice(arg) {
     advice = arg;
-    toggleAdvice(advice);
+    adviceElement.innerText = advice;
 }
-
 
 //async getAdvice response API
 async function getAdvice() {
@@ -37,6 +36,3 @@ buttonElement.addEventListener('click', () => {
     void getAdvice();
 });
 
-function toggleAdvice(advice) {
-    adviceElement.innerText = advice;
-}
