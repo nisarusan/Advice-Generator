@@ -1,16 +1,20 @@
-
 //set Error
 let error = false;
+
 function setError() {
     error = true;
 }
 
 // advice
 let advice = '';
+
 function setAdvice(arg) {
     advice = arg;
     toggleAdvice(advice);
 }
+
+
+//async getAdvice response API
 async function getAdvice() {
     try {
         const response = await fetch('https://api.adviceslip.com/advice');
@@ -28,12 +32,10 @@ getAdvice().then(() => {
 const adviceElement = document.getElementById('advice');
 const buttonElement = document.getElementById('button-circle');
 
-
-function clickButton() {
-    buttonElement.addEventListener('click', () => {
-        getAdvice();
-    })
-}
+buttonElement.addEventListener('click', () => {
+    // if click invoke getadvice
+    void getAdvice();
+});
 
 function toggleAdvice(advice) {
     adviceElement.innerText = advice;
