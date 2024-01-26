@@ -1,8 +1,8 @@
+
 //set Error
 let error = false;
-
-function setError(e) {
-    error(e);
+function setError() {
+    error = true;
 }
 
 // advice
@@ -27,10 +27,13 @@ getAdvice().then(() => {
 
 const adviceElement = document.getElementById('advice');
 const buttonElement = document.getElementById('button-circle');
-buttonElement.addEventListener('click', () => {
-    getAdvice();
-})
 
+
+function clickButton() {
+    buttonElement.addEventListener('click', () => {
+        getAdvice();
+    })
+}
 
 function toggleAdvice(advice) {
     adviceElement.innerText = advice;
